@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
+    public final static String INTENT_MSG = "INTENT_MSG";
     String mCurrentPhotoPath;
 
     @Override
@@ -44,8 +45,11 @@ public class MainActivity extends AppCompatActivity {
                                 photoFile);
                         photoIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                         startActivityForResult(photoIntent, 1);
-                    }
 
+                        Intent intent = new Intent(getApplicationContext(), ImageFrameActivity.class);
+                        intent.putExtra(INTENT_MSG, mCurrentPhotoPath);
+                        startActivity(intent);
+                    }
                 }
             }
         });
