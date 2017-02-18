@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.android.gms.vision.Frame;
 
@@ -27,6 +28,8 @@ public class ImageFrameActivity extends AppCompatActivity {
         catch (Exception e){
             Log.e("ERR cannot open image", e.getMessage());
         }
+
+        TextView result = (TextView) findViewById(R.id.result);
         Frame frame = new Frame.Builder().setBitmap(myBitmap).build();
 
     }
