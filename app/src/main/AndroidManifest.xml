@@ -2,6 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.rit.ad8454.dandyhack">
 
+    <meta-data
+        android:name="com.google.android.gms.vision.DEPENDENCIES"
+        android:value="ocr" />
+
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <provider
+        android:name="android.support.v4.content.FileProvider"
+        android:authorities="edu.rit.ad8454.dandyhack"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths" />
+    </provider>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,25 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ImageFrameActivity"></activity>
     </application>
-
-    <meta-data
-        android:name="com.google.android.gms.vision.DEPENDENCIES"
-        android:value="ocr"/>
-
-    <uses-feature android:name="android.hardware.camera2"
-                    android:required="true" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <provider
-        android:name="android.support.v4.content.FileProvider"
-        android:authorities="edu.rit.ad8454.dandyhack"
-        android:exported="false"
-        android:grantUriPermissions="true">
-        <meta-data
-            android:name="android.support.FILE_PROVIDER_PATHS"
-            android:resource="@xml/file_paths"></meta-data>
-    </provider>
-
 
 </manifest>
