@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static android.os.Environment.getExternalStoragePublicDirectory;
+
 public class MainActivity extends AppCompatActivity {
     public final static String INTENT_MSG = "INTENT_MSG";
     String mCurrentPhotoPath;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     } catch (IOException ex) {
                         Log.e("ERROR createImageFile", ex.toString());
                     }
+                    Log.d("image path", mCurrentPhotoPath);
                     // Continue only if the File was successfully created
                     if (photoFile != null) {
                         Uri photoURI = FileProvider.getUriForFile(getApplicationContext(),
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
