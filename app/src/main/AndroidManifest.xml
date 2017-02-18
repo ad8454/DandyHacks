@@ -17,6 +17,10 @@
         </activity>
     </application>
 
+    <meta-data
+        android:name="com.google.android.gms.vision.DEPENDENCIES"
+        android:value="ocr"/>
+
     <uses-feature android:name="android.hardware.camera2"
                     android:required="true" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
